@@ -1,0 +1,219 @@
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, p, .navbar, .brand, a, .td-name, td, button, input, select, textarea {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: Arial, sans-serif;
+    font-weight: 300;
+    color: #65605a;
+}
+
+.icon-info-dark{
+    color: #65605a;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.demoFooterParagraph{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 14px;
+    margin-bottom: -2%;
+}
+
+.ImageBox {
+    text-align: center!important;
+}
+
+.ImageBox:hover {
+    transform: scale(1.01);
+}
+
+.top10title{
+    color: #65605a;
+    font-family: sans-serif;
+    margin-bottom: 2%;
+}
+
+.carouseImage{
+    max-width: 100%;
+    height: 400px;
+}
+
+.prosCons{
+    display: flex;
+}
+@media (max-width: 800px){
+.carouseImage {
+    max-width: 100%;
+    height: 200px;
+}
+.prosCons{
+    display: grid;
+}
+}
+
+
+
+
+.card img {
+    max-width: 100%;
+    height: inherit;
+}
+
+.navbar .navbar-nav .nav-item .nav-link {
+    line-height: 1.6;
+    margin: 15px 3px;
+    padding: 10px 15px;
+    /* opacity: .8; */
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #66615B;
+}
+
+
+.navbarLink, .navbarHomeFont{
+    color: #FFFFFF;
+    border-color: #66615B;
+    line-height: 1.6;
+    margin: 15px 3px;
+    padding: 10px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 991px) {
+    .navbarLink {
+        color: #66615B;
+    border-color: #FFFFFF;
+    line-height: 1.6;
+    margin: 15px 3px;
+    padding: 10px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    }
+}
+
+.navbarLinkDark, .navbarHomeFontDark{
+    color: #66615B;
+    border-color: #FFFFFF;
+    line-height: 1.6;
+    margin: 15px 3px;
+    padding: 10px 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.footer {
+    background-color: #ececec;
+    line-height: 36px;
+}
+
+.productDescription{
+    text-align: left;
+    font-size: 15px;
+    font-family: sans-serif;
+    
+    color: #000000;
+}
+
+.specs{
+    border-left: 6px solid #c0abff;
+    border-radius: 6px;
+    background-color: rgb(243, 242, 255);
+    flex: 1;
+    padding: 1em;
+    margin: 1%;
+    text-align: justify;
+    margin-bottom: 3%
+}
+
+.pros{
+    border-left: 6px solid #74ca74;
+    border-radius: 6px;
+    background-color: rgb(238, 255, 234);
+    flex: 1;
+    padding:  1em;
+    margin: 1%;
+    text-align: justify;
+    margin-bottom: 5%
+}
+
+.cons{
+    border-left: 6px solid #ff9d9d;
+    border-radius: 6px;
+    background-color: rgb(255, 248, 248);
+    flex: 1;
+    margin: 1%;
+    padding:  1em;
+    text-align: justify;
+    margin-bottom: 5%
+}
+
+.card-register {
+    background-color: #403d39;
+    border-radius: 8px;
+    color: #fff;
+    max-width: 350px;
+    margin: 20px 0 70px;
+    min-height: 400px;
+    padding: 30px;
+}
+
+.card a:not(.btn):hover, .card a:not(.btn):focus {
+    color: #f5593d;
+}
+
+.adminDashboard{
+    margin-top: 5%;
+}
+
+
+.dashboardCard {
+    border-radius: 5px;
+    box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
+    background-color: #FFFFFF;
+    color: #333333;
+    position: relative;
+    z-index: 1;
+    border: 0 none;
+}
+
+.dashboardCard:not(.dashboardCard-plain):hover {
+    box-shadow: 0px 12px 19px -7px rgba(0, 0, 0, 0.3);
+}
+
+.imageSize{
+    width: 100%;
+    margin-top: 10%;
+    height: fit-content;
+}
+
+@media screen and (max-width: 991px) {
+    .footer-things {
+        display: grid;
+    }
+    .imageSize{
+        width: 100%;
+        margin-top: 10%;
+        height: 250px;
+    }
+}
+
+.signoutButton{
+    cursor: 'pointer';
+    color: #ffffff;
+}
+
+.showNoProduct{
+    border-style: solid;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 300%;
+    text-align: center;
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
