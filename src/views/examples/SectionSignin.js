@@ -22,8 +22,8 @@ import Layout from "components/Layout";
 
 function SectionSignin() {
   const [values, setValues] = useState({
-    email: 'ryder@gmail.com',
-    password: 'ryder123',
+    email: '',
+    password: '',
     error: '',
     loading: false,
     redirectToReferrer: false
@@ -41,7 +41,6 @@ function SectionSignin() {
     setValues({ ...values, error: false, loading: true })
     signin({ email, password })
       .then(data => {
-        console.log('Error :: '+JSON.stringify(data))
         if (data.error) {
           setValues({ ...values, error: data.error, loading: false, })
         } else {
