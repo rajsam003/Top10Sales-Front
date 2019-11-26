@@ -41,6 +41,7 @@ function SectionSignin() {
     setValues({ ...values, error: false, loading: true })
     signin({ email, password })
       .then(data => {
+        console.log('Error :: '+JSON.stringify(data))
         if (data.error) {
           setValues({ ...values, error: data.error, loading: false, })
         } else {
