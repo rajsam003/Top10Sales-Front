@@ -6,7 +6,6 @@ import { Row, Container, Col } from "reactstrap";
 function DemoFooter() {
   return (
     <footer className="footer footer-black footer-white">
-      <hr />
       <Container>
         <Row>
         <Col className="ml-auto mr-auto" md="12">

@@ -20,6 +20,7 @@ const IndexNavbar = ({ history }) => {
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
   const toggleNavbarCollapse = () => {
+    console.log('toggleNavbarCollapse')
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle("nav-open");
   };
@@ -78,28 +79,28 @@ const IndexNavbar = ({ history }) => {
           <Nav navbar>
             <NavItem>
               <Link to="/top-10-air-conditioners-in-india">
-                <div className={classnames(navbarFontColor)}>
+                <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                   Air Conditioners
                 </div>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/top-10-washing-machines-in-india">
-                <div className={classnames(navbarFontColor)}>
+                <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                   Washing Machines
                 </div>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/top-10-refrigrators-in-india">
-                <div className={classnames(navbarFontColor)}>
+                <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                   Refrigrators
                 </div>
               </Link>
             </NavItem>
             <NavItem>
               <Link to="/top-10-kitchen-appliances-in-india">
-                <div className={classnames(navbarFontColor)}>
+                <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                   Kitchen Appliances
                 </div>
               </Link>
@@ -129,7 +130,7 @@ const IndexNavbar = ({ history }) => {
             {!isAuthenticated() && (
               <NavItem>
                 <Link to="/signup">
-                  <div className={classnames(navbarFontColor)}>
+                  <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                     <i
                       aria-hidden={true}
                       className="nc-icon nc-single-02"
@@ -143,7 +144,7 @@ const IndexNavbar = ({ history }) => {
             {isAuthenticated() && isAuthenticated().user.role === 0 && (
               <NavItem>
                 <Link to="/user/dashboard">
-                  <div className={classnames(navbarFontColor)}>
+                  <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                     <i
                       aria-hidden={true}
                       className="nc-icon nc-single-02"
@@ -157,7 +158,7 @@ const IndexNavbar = ({ history }) => {
             {isAuthenticated() && isAuthenticated().user.role === 1 && (
               <NavItem>
                 <Link to="/admin/dashboard">
-                  <div className={classnames(navbarFontColor)}>
+                  <div onClick={toggleNavbarCollapse} className={classnames(navbarFontColor)}>
                     <i
                       aria-hidden={true}
                       className="nc-icon nc-single-02"
@@ -170,7 +171,7 @@ const IndexNavbar = ({ history }) => {
             )}
             {isAuthenticated() && (
               <NavItem>
-                <span className=" nav-link signoutButton" 
+                <span onClick={toggleNavbarCollapse} className=" nav-link signoutButton" 
                   onClick={() => signout(() => {
                     history.push('/');
                   })}>Signout</span>

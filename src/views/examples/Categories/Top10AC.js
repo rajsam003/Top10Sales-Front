@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { list } from '../apiUser';
+import { list, getCategories } from '../apiUser';
 
 // reactstrap components
 import {
@@ -30,8 +30,22 @@ const Top10AC = () => {
     };
   });
 
-  const searchData = () => {
-    list({ search: 'Air Conditioners' || undefined, category: '5dd247de9af6e222d0b3d336' })
+  const loadCategories = (cb) => {
+    getCategories().then(response =>{
+      if(response.error){
+        console.log("load Categories error: "+response.error)
+      } else {
+        response.map(res => {
+          if(res.name === 'Air Conditioners'){
+            cb(res.name, res._id)
+          }
+        })
+      }
+    })
+  }
+
+  const searchData = (search, category) => {
+    list({ search: search || undefined, category: category })
       .then(response => {
         if (response.error) {
           console.log(response.error)
@@ -46,7 +60,7 @@ const Top10AC = () => {
   }
 
   useEffect(() => {
-    searchData()
+    loadCategories(searchData)
   }, [])
 
   const fridgeContent = () => (
@@ -109,13 +123,13 @@ const Top10AC = () => {
       return (
         <div>
           {fridgeContent()}
-          <ProductCard products={results} loadProduct={searchData} />
+          <ProductCard products={results} loadProduct={loadCategories} />
         </div>
       )
     } else {
       return (
         <div className="showNoProduct">
-          <span>Currently products unavailable</span>
+           <span className="noProductText">Currently products unavailable</span>
         </div>
       )
     }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { list } from '../apiUser';
+import { list, getCategories } from '../apiUser';
 
 // reactstrap components
 import {
@@ -30,24 +30,38 @@ const { results, showProduct } = data;
     };
   });
 
-  const searchData = () => {
-        list({search: 'Washing Machines' || undefined, category:'5dd247ed9af6e222d0b3d337'})
-        .then(response => {
-            if(response.error){
-                console.log(response.error)
-            }else {
-              if (response === undefined || response.length === 0) {
-                setData({ ...data, results: response, showProduct: false })
-              } else {
-                setData({ ...data, results: response, showProduct: true })
-              }
-            }
-          })
+  const loadCategories = (cb) => {
+    getCategories().then(response =>{
+      if(response.error){
+        console.log("load Categories error: "+response.error)
+      } else {
+        response.map(res => {
+          if(res.name === 'Washing Machines'){
+            cb(res.name, res._id)
+          }
+        })
       }
+    })
+  }
+
+  const searchData = (search, category) => {
+    list({ search: search || undefined, category: category })
+      .then(response => {
+        if (response.error) {
+          console.log(response.error)
+        } else {
+          if (response === undefined || response.length === 0) {
+            setData({ ...data, results: response, showProduct: false })
+          } else {
+            setData({ ...data, results: response, showProduct: true })
+          }
+        }
+      })
+  }
 
   useEffect(() => {
-    searchData()
-}, [])
+    loadCategories(searchData)
+  }, [])
 
   const fridgeContent = () => (
     <div className="profile-content">
@@ -109,13 +123,13 @@ const { results, showProduct } = data;
       return (
         <div>
           {fridgeContent()}
-          <ProductCard products={results} loadProduct={searchData} />
+          <ProductCard products={results} loadProduct={loadCategories} />
         </div>
       )
     } else {
       return (
         <div className="showNoProduct">
-          <span>Currently products unavailable</span>
+           <span className="noProductText">Currently products unavailable</span>
         </div>
       )
     }
